@@ -1,0 +1,15 @@
+torch>=2.0.0
+transformers>=4.30.0
+accelerate>=0.20.0
+fastapi>=0.95.0
+uvicorn>=0.22.0
+pydantic>=1.10.0
+sse-starlette>=1.6.0
+# CPU optimization
+optimum>=1.8.0
+# Memory optimization
+bitsandbytes>=0.39.0
+# For better tokenization performance
+tokenizers>=0.13.0
+# For progress bars
+tqdm>=4.65.0
