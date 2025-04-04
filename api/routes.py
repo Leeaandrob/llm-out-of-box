@@ -36,6 +36,7 @@ def get_model_engine():
 )
 async def create_chat_completion(
     request: ChatCompletionRequest,
+    fastapi_request: Request,
     engine: ModelEngine = Depends(get_model_engine),
 ):
     """
@@ -59,7 +60,7 @@ async def create_chat_completion(
         if request.stream:
             # Generate streaming response
             generator = engine.generate_stream(messages, generation_params)
-            return create_streaming_response(generator, MODEL_CONFIG["model_id"])
+            return create_streaming_response(generator, fastapi_request, MODEL_CONFIG["model_id"])
         else:
             # Generate non-streaming response
             result = engine.generate(messages, generation_params)
